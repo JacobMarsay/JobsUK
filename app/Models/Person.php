@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'contact_number',
+    ];
 
     public function address()
     {

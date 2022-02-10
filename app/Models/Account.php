@@ -9,6 +9,14 @@ class Account extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'email_address',
+        'password',
+        'role',
+    ];
+
     public function company()
     {
         return $this->belongsTo(Company::class);

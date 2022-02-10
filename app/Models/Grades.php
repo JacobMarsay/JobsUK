@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Grades extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'course_name',
+        'results',
+    ];
 
     public function education()
     {

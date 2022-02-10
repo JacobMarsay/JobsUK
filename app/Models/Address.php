@@ -9,6 +9,16 @@ class Address extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'street_name',
+        'house_number',
+        'postcode',
+        'city',
+        'county',
+    ];
+
     public function person()
     {
         return $this->belongsTo(Person::class);
@@ -18,6 +28,5 @@ class Address extends Model
     {
         return $this->belongsTo(Company::class);
     }
-
 }
 

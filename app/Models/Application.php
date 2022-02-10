@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'career_type',
+        'biography',
+        'years_of_experience',
+        'hobby_description',
+    ];
 
     public function account()
     {

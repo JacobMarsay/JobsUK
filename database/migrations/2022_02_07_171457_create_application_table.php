@@ -15,6 +15,7 @@ class CreateApplicationTable extends Migration
     {
         Schema::create('application', function (Blueprint $table) {
             $table->id();
+            $table->string('career_type');
             $table->longText('biography');
             $table->tinyInteger('years_of_experience');
             $table->mediumText('hobby_description');

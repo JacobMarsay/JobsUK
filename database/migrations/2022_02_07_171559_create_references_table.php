@@ -17,7 +17,9 @@ class CreateReferencesTable extends Migration
             $table->id();
             $table->string('previous_company_name');
             $table->string('employer_name');
+            $table->string('employer_contact');
             $table->tinyInteger('duration_worked');
+            
         });
     }
 
