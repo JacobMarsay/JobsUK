@@ -14,11 +14,18 @@ class CreateApplicationTable extends Migration
     public function up()
     {
         Schema::create('application', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('career_type');
             $table->longText('biography');
             $table->tinyInteger('years_of_experience');
             $table->mediumText('hobby_description');
+
+            $table->integer('account_id')->unsigned();
+            $table->foreign('account_id')
+                ->references('id')
+                ->on('company')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

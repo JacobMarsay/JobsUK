@@ -14,9 +14,16 @@ class CreateEducationTable extends Migration
     public function up()
     {
         Schema::create('education', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('place_of_institution');
             $table->string('education_type');
+            
+            $table->integer('application_id')->unsigned();
+            $table->foreign('application_id')
+                ->references('id')
+                ->on('application')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

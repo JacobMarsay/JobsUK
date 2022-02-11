@@ -14,13 +14,24 @@ class CreateAddressTable extends Migration
     public function up()
     {
         Schema::create('address', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('street_name');
             $table->integer('house_number');
             $table->string('postcode');
             $table->string('city');
             $table->string('county');
-
+            $table->integer('person_id')->unsigned();
+            $table->integer('company_id')->unsigned();
+            
+            $table->foreign('person_id')
+                ->references('id')
+                ->on('person')
+                ->onDelete('cascade');
+            
+            $table->foreign('company_id')
+                ->references('id')
+                ->on('company')
+                ->onDelete('cascade');
         });
     }
 
@@ -34,3 +45,4 @@ class CreateAddressTable extends Migration
         Schema::dropIfExists('address');
     }
 }
+

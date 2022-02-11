@@ -14,11 +14,18 @@ class CreateReferencesTable extends Migration
     public function up()
     {
         Schema::create('references', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('previous_company_name');
             $table->string('employer_name');
             $table->string('employer_contact');
             $table->tinyInteger('duration_worked');
+            
+            $table->integer('application_id')->unsigned();
+            $table->foreign('application_id')
+                ->references('id')
+                ->on('application')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             
         });
     }

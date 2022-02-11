@@ -14,11 +14,23 @@ class CreateAccountTable extends Migration
     public function up()
     {
         Schema::create('account', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('email_address');
             $table->string('password');
             $table->tinyInteger('role');
             $table->timestamps();
+            
+            $table->integer('person_id')->unsigned();
+            $table->foreign('person_id')
+                ->references('id')
+                ->on('person')
+                ->onDelete('cascade');
+            
+            $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')
+                ->references('id')
+                ->on('company')
+                ->onDelete('cascade');
         });
     }
 

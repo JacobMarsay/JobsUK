@@ -14,10 +14,16 @@ class CreateSkillsTable extends Migration
     public function up()
     {
         Schema::create('skills', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('skill_name');
             $table->string('skill_type');
             
+            $table->integer('application_id')->unsigned();
+            $table->foreign('application_id')
+                ->references('id')
+                ->on('application')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
