@@ -26,11 +26,11 @@ class CreateAccountTable extends Migration
                 ->on('person')
                 ->onDelete('cascade');
             
-            $table->integer('company_id')->unsigned();
-            $table->foreign('company_id')
-                ->references('id')
-                ->on('company')
-                ->onDelete('cascade');
+            // $table->integer('company_id')->unsigned();
+            // $table->foreign('company_id')
+            //     ->references('id')
+            //     ->on('company')
+            //     ->onDelete('cascade');
         });
     }
 

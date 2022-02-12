@@ -8,19 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     use HasFactory;
-
+    protected $table = 'account';
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'email_address',
         'password',
         'role',
+        'person_id',
+        // 'comapny_id',
     ];
 
-    public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
+    // public function company()
+    // {
+    //     return $this->belongsTo(Company::class);
+    // }
 
     public function person()
     {

@@ -8,13 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model
 {
     use HasFactory;
+    
+    public $timestamps = false;
+    
+    protected $table = 'application';
     protected $primaryKey = 'id';
-
     protected $fillable = [
         'career_type',
         'biography',
         'years_of_experience',
         'hobby_description',
+        'account_id',
     ];
 
     public function account()
@@ -37,3 +41,4 @@ class Application extends Model
         return $this->hasMany(Education::class);
     }
 }
+ 

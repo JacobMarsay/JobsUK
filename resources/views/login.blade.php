@@ -12,4 +12,4 @@
     </div>
     <button type="submit" class="btn btn-blue">Login</button>
 </form>
-    <p>Don't have an account? <a href="/registration">SIGN UP</a></p>
+    <p>Don't have an account? <a href="users/registration">SIGN UP</a></p>

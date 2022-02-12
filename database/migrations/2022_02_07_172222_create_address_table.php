@@ -21,17 +21,17 @@ class CreateAddressTable extends Migration
             $table->string('city');
             $table->string('county');
             $table->integer('person_id')->unsigned();
-            $table->integer('company_id')->unsigned();
+            // $table->integer('company_id')->unsigned();
             
             $table->foreign('person_id')
                 ->references('id')
                 ->on('person')
                 ->onDelete('cascade');
             
-            $table->foreign('company_id')
-                ->references('id')
-                ->on('company')
-                ->onDelete('cascade');
+            // $table->foreign('company_id')
+            //     ->references('id')
+            //     ->on('company')
+            //     ->onDelete('cascade');
         });
     }
 

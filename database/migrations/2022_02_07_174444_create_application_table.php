@@ -23,7 +23,7 @@ class CreateApplicationTable extends Migration
             $table->integer('account_id')->unsigned();
             $table->foreign('account_id')
                 ->references('id')
-                ->on('company')
+                ->on('account')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

@@ -8,13 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class References extends Model
 {
     use HasFactory;
+    
+    public $timestamps = false;
+    
+    protected $table = 'references';
     protected $primaryKey = 'id';
-
     protected $fillable = [
         'previous_company_name',
         'employer_name',
         'employer_contact',
         'duration_worked',
+        'application_id',
     ];
 
     public function application()
