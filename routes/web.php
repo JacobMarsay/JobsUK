@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\JobSeekerRegistrationController;
+use App\Http\Controllers\CompanyRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,17 +22,14 @@ Route::get('users/registration', function () {
     return view('users/registration');
 });
 
-// Route::get('/jobseeker-registration', function () {
-//     return view('jobseeker-registration');
-// });
+
+Route::get('/jobseeker-registration', [JobSeekerRegistrationController::class, 'create'])->name('createJobSeeker');
+Route::post('/jobseeker-registration', [JobSeekerRegistrationController::class, 'store'])->name('storeJobSeeker');
+
+Route::get('/company-registration', [CompanyRegistrationController::class, 'create'])->name('createCompany');
+Route::post('/company-registration', [CompanyRegistrationController::class, 'store'])->name('storeCompany');
 
 
-Route::get('/jobseeker-registration', [JobSeekerRegistrationController::class, 'create'])->name('create');
-Route::post('/jobseeker-registration', [JobSeekerRegistrationController::class, 'store'])->name('store');
-
-Route::get('/company-registration', function () {
-    return view('company-registration');
-});
 
 
 

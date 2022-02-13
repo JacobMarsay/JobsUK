@@ -1,5 +1,5 @@
 <h1>JobSeeker Registration</h1>
-<form class="" action="{{ route('store') }}" method="POST">
+<form class="" action="{{ route('storeJobSeeker') }}" method="POST">
     @csrf
     <h1>Personal Details</h1>
     <p>Please enter your personal details.</p>
@@ -62,10 +62,10 @@
         <option value="phd">PHD</option>
         <option value="other_education">Other</option>
     </select>
-    <!-- <label for="course_name">Course:<label>
+    <label for="course_name">Course:<label>
     <input type="text" id="course_name" name="course_name">
     <label for="results">Grades:<label>
-    <input type="text" id="results" name="results"> -->
+    <input type="text" id="results" name="results">
 
     <h1>Biography</h1>
     <p>Please write your biography here. NOTE: This is the main part of your application form so please be descriptive. Think about past achievements and why you are great at what you do.</p>

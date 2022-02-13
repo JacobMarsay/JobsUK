@@ -16,13 +16,13 @@ class Account extends Model
         'password',
         'role',
         'person_id',
-        // 'comapny_id',
+        'company_id',
     ];
 
-    // public function company()
-    // {
-    //     return $this->belongsTo(Company::class);
-    // }
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 
     public function person()
     {

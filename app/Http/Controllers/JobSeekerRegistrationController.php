@@ -10,14 +10,12 @@ use App\Models\Application;
 use App\Models\Skills;
 use App\Models\References;
 use App\Models\Education;
-// use App\Models\Grades;
-// use App\Models\Education_Grades;
+use App\Models\Grades;
 use Hash;
 
 class JobSeekerRegistrationController extends Controller
 { 
-    protected $person, $address, $account, $application, $skills, $references, $education; 
-    //$grades;
+    protected $person, $address, $account, $application, $skills, $references, $education, $grades;
 
     public function __construct(){
         $this->person = new Person();
@@ -27,7 +25,7 @@ class JobSeekerRegistrationController extends Controller
         $this->skills = new Skills();
         $this->references = new References();
         $this->education = new Education();
-        // $this->grades = new Grades();
+        $this->grades = new Grades();
     }
 
     public function create(){
@@ -60,8 +58,8 @@ class JobSeekerRegistrationController extends Controller
             'duration_worked' => 'required',
             'place_of_institution' => 'required',
             'education_type' => 'required',
-            // 'course_name' => 'required',
-            // 'results' => 'required',
+            'course_name' => 'required',
+            'results' => 'required',
         ]);
 
         $person = new Person;
@@ -107,193 +105,11 @@ class JobSeekerRegistrationController extends Controller
         $education->place_of_institution = $request->place_of_institution;
         $education->education_type = $request->education_type;
         $application->education()->save($education);
+
+        $grades = new Grades;
+        $grades->course_name = $request->course_name;
+        $grades->results = $request->results;
+        $education->grades()->save($grades);
         
-
-
-
-        // $person = $this->person->create([
-        //     'first_name' => $request->first_name,
-        //     'last_name' => $request->last_name,
-        //     'contact_number' => $request->contact_number
-        // ]);
-
-        // $address = $this->address->create([
-        //     'street_name' => $request->street_name,
-        //     'house_number' => $request->house_number,
-        //     'postcode' => $request->postcode,
-        //     'city' => $request->city,
-        //     'county' => $request->county,
-        //     'person_id' => $person->id
-        // ]);
-
-        // $account = $this->account->create([
-        //     'email' => $request->email_address, 
-        //     'password' => $request->password,
-        //     'role' => 1,
-        //     'person_id' => $person->id
-        // ]);
-
-        // $application = $this->application->create([
-        //     'career_type' => $request->career_type,
-        //     'biography' => $request->biography,
-        //     'years_of_experience' => $request->years_of_experience,
-        //     'hobby_description' => $request->hobby_description,
-        //     'account_id' => $account->id
-        // ]);
-
-        // $skills = $this->skills->create([
-        //     'skill_name' => $request->skill_name,
-        //     'skill_type' => $request->skill_type,
-        //     'application_id' => $application->id
-        // ]);
-
-        // $references = $this->references->create([
-        //     'previous_company_name' => $request->previous_company_name,
-        //     'employer_name' => $request->employer_name,
-        //     'employer_contact' => $request->employer_contact,
-        //     'duration_worked' => $request->duration_worked,
-        //     'application_id' => $application->id
-        // ]);
-        
-        // $education = $this->education->create([
-        //     'place_of_institution' => $request->place_of_institution,
-        //     'education_type' => $request->education_type,
-        //     'application_id' => $application->id
-        // ]);
-
-        // $grades = $this->grades->create([
-        //     'course_name' => $request->course_name,
-        //     'results' => $request->results
-        // ]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // DB::beginTransaction();
-        // try{
-        //     $person = $this->person->create([
-        //         'first_name' => $request->first_name,
-        //         'last_name' => $request->last_name,
-        //         'contact_number' => $request->contact_number
-        //     ]);
-    
-        //     $address = $this->address->create([
-        //         'street_name' => $request->street_name,
-        //         'house_number' => $request->house_number,
-        //         'postcode' => $request->postcode,
-        //         'city' => $request->city,
-        //         'county' => $request->county,
-        //         'person_id' => $person->id
-        //     ]);
-    
-        //     $account = $this->account->create([
-        //         'email' => $request->email_address,
-        //         'password' => $request->password,
-        //         'role' => 1,
-        //         'person_id' => $person->id
-        //     ]);
-    
-        //     $application = $this->application->create([
-        //         'career_type' => $request->career_type,
-        //         'biography' => $request->biography,
-        //         'years_of_experience' => $request->years_of_experience,
-        //         'hobby_description' => $request->hobby_description,
-        //         'account_id' => $account->id
-        //     ]);
-    
-        //     $skills = $this->skills->create([
-        //         'skill_name' => $request->skill_name,
-        //         'skill_type' => $request->skill_type,
-        //         'application_id' => $application->id
-        //     ]);
-    
-        //     $references = $this->references->create([
-        //         'previous_company_name' => $request->previous_company_name,
-        //         'employer_name' => $request->employer_name,
-        //         'employer_contact' => $request->employer_contact,
-        //         'duration_worked' => $request->duration_worked,
-        //         'application_id' => $application->id
-        //     ]);
-            
-        //     $education = $this->education->create([
-        //         'place_of_institution' => $request->place_of_institution,
-        //         'education_type' => $request->education_type,
-        //         'application_id' => $application->id
-        //     ]);
-    
-        //     $grades = $this->grades->create([
-        //         'course_name' => $request->course_name,
-        //         'results' => $request->results
-        //     ]);
-        //     if($person && $address && $account && $application && $skills && $references && $education && $grades){
-        //         DB::commit();
-        //     }
-        //     else {
-        //         DB::rollback();
-        //     }
-        //     return redirect()->back();
-        // }
-        // catch(Exception $exception){
-        //     DB::rollback();
-        //     return redirect()->back();
-        // }
-
-        
-        
-
-        // $this->education_grades->create([
-        //     'education_id' => $request->education_id,
-        //     'grades_id' => $request->grades_id
-        // ]);
-       
-       
-        // $person->first_name = $request->first_name;
-        // $person->last_name = $request->last_name;
-        // $person->contact_number = $request->contact_number;
-        // $person->save();
     } 
 }
-
-
-// function save(Request $request)
-// {
-//     $this->validate($request, [
-//         'title' => 'required|max:100',
-//         'year' => 'required|integer|min:1900',
-//         'duration' => 'required|integer|min:1|max:300',
-//     ]);
-//     //create the new film
-//     $film = new Film();
-//     $film->title = $request->title;
-//     $film->year=$request->year;
-//     $film->duration=$request->duration;
-//     //assign certificate to film
-//     $certificate = Certificate::find($request->certificate);
-//     $film->certificate()->associate($certificate);
-
-//     $film->save();
-//     return redirect('list');
-// }

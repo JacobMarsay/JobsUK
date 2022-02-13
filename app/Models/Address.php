@@ -20,7 +20,7 @@ class Address extends Model
         'city',
         'county',
         'person_id',
-        // 'company_id',
+        'company_id',
     ];
 
     public function person()
@@ -28,9 +28,9 @@ class Address extends Model
         return $this->belongsTo(Person::class);
     }
 
-    // public function company()
-    // {
-    //     return $this->belongsTo(Company::class); 
-    // }
+    public function company()
+    {
+        return $this->belongsTo(Company::class); 
+    }
 }
 

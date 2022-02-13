@@ -20,17 +20,17 @@ class CreateAccountTable extends Migration
             $table->tinyInteger('role');
             $table->timestamps();
             
-            $table->integer('person_id')->unsigned();
+            $table->integer('person_id')->nullable()->unsigned();
             $table->foreign('person_id')
                 ->references('id')
                 ->on('person')
                 ->onDelete('cascade');
             
-            // $table->integer('company_id')->unsigned();
-            // $table->foreign('company_id')
-            //     ->references('id')
-            //     ->on('company')
-            //     ->onDelete('cascade');
+            $table->integer('company_id')->nullable()->unsigned();
+            $table->foreign('company_id')
+                ->references('id')
+                ->on('company')
+                ->onDelete('cascade');
         });
     }
 
