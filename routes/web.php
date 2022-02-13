@@ -29,6 +29,8 @@ Route::post('/jobseeker-registration', [JobSeekerRegistrationController::class, 
 Route::get('/company-registration', [CompanyRegistrationController::class, 'create'])->name('createCompany');
 Route::post('/company-registration', [CompanyRegistrationController::class, 'store'])->name('storeCompany');
 
+//Test comment
+
 
 
 
