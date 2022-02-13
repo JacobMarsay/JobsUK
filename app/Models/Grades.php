@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Grades extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    
+    protected $table = 'grades';
     protected $primaryKey = 'id';
-
     protected $fillable = [
         'course_name',
         'results',

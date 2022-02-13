@@ -10,14 +10,12 @@ use App\Models\Application;
 use App\Models\Skills;
 use App\Models\References;
 use App\Models\Education;
-// use App\Models\Grades;
-// use App\Models\Education_Grades;
+use App\Models\Grades;
 use Hash;
 
 class JobSeekerRegistrationController extends Controller
 { 
-    protected $person, $address, $account, $application, $skills, $references, $education; 
-    //$grades;
+    protected $person, $address, $account, $application, $skills, $references, $education, $grades;
 
     public function __construct(){
         $this->person = new Person();
@@ -27,7 +25,7 @@ class JobSeekerRegistrationController extends Controller
         $this->skills = new Skills();
         $this->references = new References();
         $this->education = new Education();
-        // $this->grades = new Grades();
+        $this->grades = new Grades();
     }
 
     public function create(){
@@ -60,8 +58,8 @@ class JobSeekerRegistrationController extends Controller
             'duration_worked' => 'required',
             'place_of_institution' => 'required',
             'education_type' => 'required',
-            // 'course_name' => 'required',
-            // 'results' => 'required',
+            'course_name' => 'required',
+            'results' => 'required',
         ]);
 
         $person = new Person;
@@ -107,6 +105,11 @@ class JobSeekerRegistrationController extends Controller
         $education->place_of_institution = $request->place_of_institution;
         $education->education_type = $request->education_type;
         $application->education()->save($education);
+
+        $grades = new Grades;
+        $grades->course_name = $request->course_name;
+        $grades->results = $request->results;
+        $education->grades()->save($grades);
         
 
 

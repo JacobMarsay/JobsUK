@@ -24,8 +24,8 @@ class Education extends Model
         return $this->belongsTo(Application::class);
     }
 
-    // public function grades()
-    // {
-    //     return $this->belongsToMany(Grades::class);
-    // }
+    public function grades()
+    {
+        return $this->belongsToMany(Grades::class);
+    }
 }
