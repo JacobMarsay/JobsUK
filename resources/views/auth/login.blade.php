@@ -3,8 +3,8 @@
 <form class="" action="{{ route('authenticate') }}" method="POST">
     @csrf
     <div class="my-10">
-        <label for="email_address">Email:</label>
-        <input type="text" name="email_address" id="email_address"/>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email"/>
     </div>
 
     <div class="my-10">

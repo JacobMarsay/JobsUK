@@ -24,7 +24,7 @@ class LoginController extends Controller {
     {
         
         $credentials = $request->validate([
-            'email_address' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ]);
         
@@ -37,7 +37,7 @@ class LoginController extends Controller {
         }
     
         return back()->withErrors([
-            'email_address' => 'The provided credentials do not match our records.',
+            'email' => 'The provided credentials do not match our records.',
         ]);
     }
 
