@@ -23,6 +23,13 @@ Route::get('users/registration', function () {
     return view('users/registration');
 });
 
+Route::get('/jobseeker-dashboard', function () {
+    return view('/jobseeker-dashboard');
+});
+
+Route::get('/company-dashboard', function () {
+    return view('/company-dashboard');
+});
 
 Route::get('/jobseeker-registration', [JobSeekerRegistrationController::class, 'create'])->name('createJobSeeker');
 Route::post('/jobseeker-registration', [JobSeekerRegistrationController::class, 'store'])->name('storeJobSeeker');

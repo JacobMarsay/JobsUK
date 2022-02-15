@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Account;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller {
@@ -24,16 +24,19 @@ class LoginController extends Controller {
     {
         
         $credentials = $request->validate([
-            'email' => 'required',
-            'password' => 'required'
+            'email' => ['required', 'email'],
+            'password' => ['required'],
         ]);
+
+        // $credentials = array(
+        //     'email'=> User::get('email'),
+        //     'password'=> User::get('password')
+        // );
         
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             
             return redirect()->intended('/jobseeker-dashboard');
-            
-            
         }
     
         return back()->withErrors([

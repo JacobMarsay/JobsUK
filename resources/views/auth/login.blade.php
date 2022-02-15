@@ -4,12 +4,18 @@
     @csrf
     <div class="my-10">
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email"/>
+        <input type="email" id="email" name="email">
+        @error('email')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <div class="my-10">
         <label for="password">Password:</label>
-        <input name="password" id="password"/>
+        <input type="text" id="password" name="password">
+        @error('password')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
     </div>
     <button type="submit" class="btn btn-blue">Login</button>
 </form>
