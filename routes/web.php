@@ -4,6 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\JobSeekerRegistrationController;
 use App\Http\Controllers\CompanyRegistrationController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +15,9 @@ use App\Http\Controllers\CompanyRegistrationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('login');
-});
+
+Route::get('/', [LoginController::class, 'login'])->name('createLogin');
+Route::post('/', [LoginController::class, 'authenticate'])->name('authenticate');
 
 Route::get('users/registration', function () {
     return view('users/registration');
@@ -29,7 +30,6 @@ Route::post('/jobseeker-registration', [JobSeekerRegistrationController::class, 
 Route::get('/company-registration', [CompanyRegistrationController::class, 'create'])->name('createCompany');
 Route::post('/company-registration', [CompanyRegistrationController::class, 'store'])->name('storeCompany');
 
-//Test comment
 
 
 

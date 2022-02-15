@@ -2,8 +2,8 @@
 <form class="" action="{{ route('storeCompany') }}" method="POST">
     @csrf
     <h1>Account Details</h1>
-    <label for="email_address">Email Address:<label>
-    <input type="email" id="email_address" name="email_address">
+    <label for="email">Email Address:<label>
+    <input type="email" id="email" name="email">
     <label for="password">Password:<label>
     <input type="password" id="password" name="password">
 
@@ -18,7 +18,7 @@
 
     <h1>Address Details</h1>
     <p>Please enter your company address information.</p>
-    <label for="stree_name">Street Name:<label>
+    <label for="street_name">Street Name:<label>
     <input type="text" id="street_name" name="street_name">
     <label for="house_number">Building/Office Number:<label>
     <input type="text" id="house_number" name="house_number">

@@ -18,12 +18,12 @@ class Application extends Model
         'biography',
         'years_of_experience',
         'hobby_description',
-        'account_id',
+        'users_id',
     ];
 
-    public function account()
+    public function user()
     {
-        return $this->belongsTo(Account::class);
+        return $this->belongsTo(User::class);
     }
 
     public function skills()

@@ -20,10 +20,10 @@ class CreateApplicationTable extends Migration
             $table->tinyInteger('years_of_experience');
             $table->mediumText('hobby_description');
 
-            $table->integer('account_id')->unsigned();
-            $table->foreign('account_id')
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('account')
+                ->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

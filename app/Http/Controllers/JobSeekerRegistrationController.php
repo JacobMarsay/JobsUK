@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\Address;
-use App\Models\Account;
+use App\Models\User;
 use App\Models\Application;
 use App\Models\Skills;
 use App\Models\References;
@@ -15,18 +15,18 @@ use Hash;
 
 class JobSeekerRegistrationController extends Controller
 { 
-    protected $person, $address, $account, $application, $skills, $references, $education, $grades;
+    protected $person, $address, $user, $application, $skills, $references, $education, $grades;
 
-    public function __construct(){
-        $this->person = new Person();
-        $this->address = new Address();
-        $this->account = new Account();
-        $this->application = new Application();
-        $this->skills = new Skills();
-        $this->references = new References();
-        $this->education = new Education();
-        $this->grades = new Grades();
-    }
+    // public function __construct(){
+    //     $this->person = new Person();
+    //     $this->address = new Address();
+    //     $this->user = new User();
+    //     $this->application = new Application();
+    //     $this->skills = new Skills();
+    //     $this->references = new References();
+    //     $this->education = new Education();
+    //     $this->grades = new Grades();
+    // }
 
     public function create(){
         return view ('users/jobseeker-registration');
@@ -39,7 +39,7 @@ class JobSeekerRegistrationController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'contact_number' => 'required',
-            'email_address' => 'required',
+            'email' => 'required',
             'password' => 'required',
             'street_name' => 'required',
             'house_number' => 'required',
@@ -76,18 +76,18 @@ class JobSeekerRegistrationController extends Controller
         $address->county = $request->county;
         $person->address()->save($address);
 
-        $account = new Account;
-        $account->email_address = $request->email_address;
-        $account->password = $request->password;
-        $account->role = 1;
-        $person->account()->save($account);
+        $user = new User;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role = 1;
+        $person->user()->save($user);
 
         $application = new Application;
         $application->career_type = $request->career_type;
         $application->biography = $request->biography;
         $application->years_of_experience = $request->years_of_experience;
         $application->hobby_description = $request->hobby_description;
-        $account->application()->save($application);
+        $user->application()->save($application);
 
         $skills = new Skills;
         $skills->skill_type = $request->skill_type;
@@ -110,6 +110,8 @@ class JobSeekerRegistrationController extends Controller
         $grades->course_name = $request->course_name;
         $grades->results = $request->results;
         $education->grades()->save($grades);
+
+        return redirect('/');
         
     } 
 }

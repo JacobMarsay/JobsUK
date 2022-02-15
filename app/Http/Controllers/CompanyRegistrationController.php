@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Address;
-use App\Models\Account;
+use App\Models\User;
 
 use Hash;
 
 class CompanyRegistrationController extends Controller
 {
-    protected $company, $address, $account;
+    protected $company, $address, $user;
 
 
     public function create(){
@@ -24,13 +24,14 @@ class CompanyRegistrationController extends Controller
             'company_name' => 'required',
             'founded' => 'required',
             'staff_capacity' => 'required',
-            'email_address' => 'required',
+            'email' => 'required',
             'password' => 'required',
             'street_name' => 'required',
             'house_number' => 'required',
             'postcode' => 'required',
             'city' => 'required',
             'county' => 'required',
+           
         ]);
         
         $company = new Company;
@@ -47,10 +48,12 @@ class CompanyRegistrationController extends Controller
         $address->county = $request->county;
         $company->address()->save($address);
 
-        $account = new Account;
-        $account->email_address = $request->email_address;
-        $account->password = $request->password;
-        $account->role = 2;
-        $company->account()->save($account);
+        $user = new User;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->role = 2;
+        $company->user()->save($user);
+
+        return redirect('/');
     }
 }

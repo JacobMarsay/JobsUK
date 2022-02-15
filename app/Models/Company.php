@@ -24,9 +24,9 @@ class Company extends Model
         return $this->hasMany(Address::class);
     }
 
-    public function account()
+    public function user()
     {
-        return $this->hasMany(Account::class);
+        return $this->hasMany(User::class);
     }
     
 }

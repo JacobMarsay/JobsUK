@@ -24,8 +24,8 @@ class Person extends Model
         return $this->hasOne(Address::class);
     }
 
-    Public function account()
+    Public function user()
     {
-        return $this->hasOne(Account::class);
+        return $this->hasOne(User::class);
     }
 }

@@ -14,16 +14,16 @@ class EducationGrades extends Migration
     public function up()
     {
         Schema::create('education_grades', function (Blueprint $table) 
-        {
-            $table->increments('id');        
+        {   
+            $table->increments('id');
             $table->integer('education_id')->unsigned();
             $table->foreign('education_id')
                 ->references('id')
                 ->on('education')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->integer('grades_id')->unsigned();
             
+            $table->integer('grades_id')->unsigned();
             $table->foreign('grades_id')
                 ->references('id')
                 ->on('grades')

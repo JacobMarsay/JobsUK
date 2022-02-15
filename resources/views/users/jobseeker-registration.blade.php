@@ -9,8 +9,8 @@
     <input type="text" id="last_name" name="last_name">
     <label for="contact_number">Phone Number:<label>
     <input type="tel" id="contact_number" name="contact_number">
-    <label for="email_address">Email Address:<label>
-    <input type="email" id="email_address" name="email_address">
+    <label for="email">Email Address:<label>
+    <input type="email" id="email" name="email">
     <label for="password">Password:<label>
     <input type="password" id="password" name="password">
 
