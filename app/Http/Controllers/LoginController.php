@@ -28,15 +28,21 @@ class LoginController extends Controller {
             'password' => ['required'],
         ]);
 
-        // $credentials = array(
-        //     'email'=> User::get('email'),
-        //     'password'=> User::get('password')
-        // );
+        
+
         
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            $role=Auth::user()->role;
+
+            if($role == 1){
+                return redirect()->intended('dashboards/jobseeker-dashboard');
+            }
+
+            if ($role == 2){
+                return redirect()->intended('dashboards/company-dashboard');
+            }
             
-            return redirect()->intended('/jobseeker-dashboard');
         }
     
         return back()->withErrors([

@@ -3,6 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\JobSeekerRegistrationController;
 use App\Http\Controllers\CompanyRegistrationController;
+use App\Http\Controllers\JobSeekerDashboardController;
+use App\Http\Controllers\CompanyDashboardController;
 
 
 /*
@@ -23,19 +25,28 @@ Route::get('users/registration', function () {
     return view('users/registration');
 });
 
-Route::get('/jobseeker-dashboard', function () {
-    return view('/jobseeker-dashboard');
-});
-
-Route::get('/company-dashboard', function () {
-    return view('/company-dashboard');
-});
-
 Route::get('/jobseeker-registration', [JobSeekerRegistrationController::class, 'create'])->name('createJobSeeker');
 Route::post('/jobseeker-registration', [JobSeekerRegistrationController::class, 'store'])->name('storeJobSeeker');
 
 Route::get('/company-registration', [CompanyRegistrationController::class, 'create'])->name('createCompany');
 Route::post('/company-registration', [CompanyRegistrationController::class, 'store'])->name('storeCompany');
+
+Route::get('dashboards/jobseeker-dashboard', [JobSeekerDashboardController::class, 'create'])->name('createJobSeekerDashboard');
+
+Route::get('dashboards/company-dashboard', [CompanyDashboardController::class, 'create'])->name('createCompanyDashboard');
+
+
+
+
+// Route::get('dashboards/jobseeker-dashboard', function () {
+//     return view('dashboards/jobseeker-dashboard');
+// });
+
+// Route::get('dashboards/company-dashboard', function () {
+//     return view('dashboards/company-dashboard');
+// });
+
+
 
 
 

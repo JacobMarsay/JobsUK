@@ -17,17 +17,6 @@ class JobSeekerRegistrationController extends Controller
 { 
     protected $person, $address, $user, $application, $skills, $references, $education, $grades;
 
-    // public function __construct(){
-    //     $this->person = new Person();
-    //     $this->address = new Address();
-    //     $this->user = new User();
-    //     $this->application = new Application();
-    //     $this->skills = new Skills();
-    //     $this->references = new References();
-    //     $this->education = new Education();
-    //     $this->grades = new Grades();
-    // }
-
     public function create(){
         return view ('users/jobseeker-registration');
     }
