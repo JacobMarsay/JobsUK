@@ -38,16 +38,6 @@ Route::get('dashboards/company-dashboard', [CompanyDashboardController::class, '
 
 
 
-// Route::get('dashboards/jobseeker-dashboard', function () {
-//     return view('dashboards/jobseeker-dashboard');
-// });
-
-// Route::get('dashboards/company-dashboard', function () {
-//     return view('dashboards/company-dashboard');
-// });
-
-
-
 
 
 

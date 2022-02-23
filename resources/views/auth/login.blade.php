@@ -12,7 +12,7 @@
 
     <div class="my-10">
         <label for="password">Password:</label>
-        <input type="text" id="password" name="password">
+        <input type="password" id="password" name="password">
         @error('password')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
