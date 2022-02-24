@@ -13,10 +13,11 @@ class CreateBenefitsJobpostTable extends Migration
      */
     public function up()
     {
-        Schema::create('benefits_jobpost', function (Blueprint $table) {
+        Schema::create('benefits_job_post', function (Blueprint $table) {
+            
             $table->increments('id');
-            $table->integer('jobpost_id')->unsigned();
-            $table->foreign('jobpost_id')
+            $table->integer('job_post_id')->unsigned();
+            $table->foreign('job_post_id')
                 ->references('id')
                 ->on('jobpost')
                 ->onUpdate('cascade')
@@ -38,6 +39,6 @@ class CreateBenefitsJobpostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('benefits_jobpost');
+        Schema::dropIfExists('benefits_job_post');
     }
 }

@@ -9,7 +9,7 @@
             <div class="navbar">
                 <ul>
                     <li><a class="navbar__link" href="/">Dashboard</a></li>
-                    <li><a class="navbar__link" href="/">Add Job Post</a></li>
+                    <li><a class="navbar__link" href="/job-post/create-job-post">Add Job Post</a></li>
                     <li><a class="navbar__link" href="/">My Job Posts</a></li>
                     <li><a class="navbar__link" href="/">Settings</a></li>
                     <li><a class="navbar__link" href="/logout">Logout</a></li>

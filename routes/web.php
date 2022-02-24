@@ -5,6 +5,7 @@ use App\Http\Controllers\JobSeekerRegistrationController;
 use App\Http\Controllers\CompanyRegistrationController;
 use App\Http\Controllers\JobSeekerDashboardController;
 use App\Http\Controllers\CompanyDashboardController;
+use App\Http\Controllers\JobPostController;
 
 
 /*
@@ -35,10 +36,10 @@ Route::get('dashboards/jobseeker-dashboard', [JobSeekerDashboardController::clas
 
 Route::get('dashboards/company-dashboard', [CompanyDashboardController::class, 'create'])->name('createCompanyDashboard');
 
-
-
-
-
+Route::get('job-post/create-job-post', [JobPostController::class, 'create'])->name('createJobPost');
+Route::post('job-post/create-job-post', [JobPostController::class, 'store'])->name('storeJobPost');
+Route::get('job-post/edit-job-post', [JobPostController::class, 'edit'])->name('editJobPost');
+Route::post('job-post/edit-job-post', [JobPostController::class, 'update'])->name('updateJobPost');
 
 
 

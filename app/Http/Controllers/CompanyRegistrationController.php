@@ -31,7 +31,6 @@ class CompanyRegistrationController extends Controller
             'postcode' => 'required',
             'city' => 'required',
             'county' => 'required',
-           
         ]);
         
         $company = new Company;
