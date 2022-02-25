@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 <meta charset="utf-8">
@@ -16,3 +16,8 @@
                 </ul>
             </div>          
         </div>
+        <div class="content">
+            <div class="container">
+                @yield('content')
+            </div>
+        </div> -->

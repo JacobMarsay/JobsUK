@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <h1>Create Job Post</h1>
 <form class="" action="{{ route('storeJobPost') }}" method="POST">
     @csrf
@@ -21,6 +23,7 @@
     <label for="benefits">Benefits<label>
     <input type="text" id="benefits" name="benefits">
 
-    <button type="submit" class="btn btn-blue">Register</button>
+    <button type="submit" class="btn btn-blue">Add Post</button>
 
 </form>
+@endsection

@@ -38,8 +38,10 @@ Route::get('dashboards/company-dashboard', [CompanyDashboardController::class, '
 
 Route::get('job-post/create-job-post', [JobPostController::class, 'create'])->name('createJobPost');
 Route::post('job-post/create-job-post', [JobPostController::class, 'store'])->name('storeJobPost');
-Route::get('job-post/edit-job-post', [JobPostController::class, 'edit'])->name('editJobPost');
-Route::post('job-post/edit-job-post', [JobPostController::class, 'update'])->name('updateJobPost');
+
+Route::resource('dashboards/company-dashboard', CompanyDashboardController::class);
+// Route::get('job-post/edit-job-post', [JobPostController::class, 'edit'])->name('editJobPost');
+// Route::post('job-post/edit-job-post', [JobPostController::class, 'update'])->name('updateJobPost');
 
 
 
