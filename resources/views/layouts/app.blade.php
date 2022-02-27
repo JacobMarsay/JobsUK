@@ -14,7 +14,7 @@
                 <div class="navbar">
                 
                     <ul>
-                        <li><a class="navbar__link" href="/">Dashboard</a></li>
+                        <li> <a href="{{ route('showCompanyDashboard') }}">Dashboard</a>
                         <li><a class="navbar__link" href="/job-post/create-job-post">Add Job Post</a></li>
                         <li><a class="navbar__link" href="/">My Job Posts</a></li>
                         <li><a class="navbar__link" href="/">Settings</a></li>

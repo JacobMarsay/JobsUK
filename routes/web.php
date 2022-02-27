@@ -36,14 +36,14 @@ Route::post('/company-registration', [CompanyRegistrationController::class, 'sto
 
 Route::get('dashboards/jobseeker-dashboard', [JobSeekerDashboardController::class, 'create'])->name('createJobSeekerDashboard');
 
-Route::get('dashboards/company-dashboard', [CompanyDashboardController::class, 'create'])->name('createCompanyDashboard');
+
 
 Route::get('job-post/create-job-post', [JobPostController::class, 'create'])->name('createJobPost');
 Route::post('job-post/create-job-post', [JobPostController::class, 'store'])->name('storeJobPost');
 
-Route::get('dashboards/company-dashboard', [CompanyDashboardController::class, 'index'])->name('showJobPosts');
+Route::get('dashboards/company-dashboard', [CompanyDashboardController::class, 'index'])->name('showCompanyDashboard');
 
-Route::get('job-post/show-job-post', [CompanyDashboardController::class, 'show'])->name('showJobPost');
+Route::get('job-post/show-job-post/{id}', [CompanyDashboardController::class, 'show'])->name('showJobPost');
 // Route::get('job-post/edit-job-post', [JobPostController::class, 'edit'])->name('editJobPost');
 // Route::post('job-post/edit-job-post', [JobPostController::class, 'update'])->name('updateJobPost');
 

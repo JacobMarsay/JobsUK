@@ -17,7 +17,7 @@
             <p>{{ $jobPost->salary }}</p>
             <p>{{ $jobPost->contract_type }}</p>
             <p>{{ $jobPost->commute_type }}</p>
-            <a href="{{ route('showJobPost', $jobPost->user_id) }}">Show</a>
+            <a href="{{ route('showJobPost', $jobPost->id) }}">Show</a>
         </div>
     @endforeach
 </div>
