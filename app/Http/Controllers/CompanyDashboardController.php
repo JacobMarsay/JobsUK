@@ -18,8 +18,18 @@ class CompanyDashboardController extends Controller
 
         $jobPosts = auth()->user()->jobpost()->orderBy('created_at', 'desc')->paginate(3);
         
+
         return view ('dashboards/company-dashboard', [
-            'job_posts' => $jobPosts
+            'jobPosts' => $jobPosts
+        ]);
+    }
+
+    
+    public function show(JobPost $jobPost) {
+
+        return view('job-post/show-job-post', [
+
+        'jobPost' => $jobPost
         ]);
     }
 }

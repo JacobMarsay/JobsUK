@@ -11,19 +11,20 @@
 <h1 class="title">Your Job Posts</h1>
 
 <div class="item-list">
-    @foreach ($job_posts as $jobPost)
+    @foreach ($jobPosts as $jobPost)
         <div class="items">   
             <p>{{ $jobPost->job_title }}</p>
             <p>{{ $jobPost->salary }}</p>
             <p>{{ $jobPost->contract_type }}</p>
             <p>{{ $jobPost->commute_type }}</p>
+            <a href="{{ route('showJobPost', $jobPost->user_id) }}">Show</a>
         </div>
     @endforeach
 </div>
 
 <div class="pagination-container">
     <div class="pagination">
-        {{ $job_posts->links() }}
+        {{ $jobPosts->links() }}
     </div>
 </div>
 

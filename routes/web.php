@@ -7,6 +7,8 @@ use App\Http\Controllers\JobSeekerDashboardController;
 use App\Http\Controllers\CompanyDashboardController;
 use App\Http\Controllers\JobPostController;
 
+use App\Http\Controllers\LogoutController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,9 +41,16 @@ Route::get('dashboards/company-dashboard', [CompanyDashboardController::class, '
 Route::get('job-post/create-job-post', [JobPostController::class, 'create'])->name('createJobPost');
 Route::post('job-post/create-job-post', [JobPostController::class, 'store'])->name('storeJobPost');
 
-Route::resource('dashboards/company-dashboard', CompanyDashboardController::class);
+Route::get('dashboards/company-dashboard', [CompanyDashboardController::class, 'index'])->name('showJobPosts');
+
+Route::get('job-post/show-job-post', [CompanyDashboardController::class, 'show'])->name('showJobPost');
 // Route::get('job-post/edit-job-post', [JobPostController::class, 'edit'])->name('editJobPost');
 // Route::post('job-post/edit-job-post', [JobPostController::class, 'update'])->name('updateJobPost');
+
+
+
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 
 
