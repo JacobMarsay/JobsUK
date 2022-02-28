@@ -37,11 +37,11 @@ class LoginController extends Controller {
             $role=Auth::user()->role;
 
             if($role == 1){
-                return redirect()->intended('dashboards/jobseeker-dashboard');
+                return redirect()->intended('/applications/index');
             }
 
             if ($role == 2){
-                return redirect()->intended('dashboards/company-dashboard');
+                return redirect()->intended('/posts');
             }
             
         }

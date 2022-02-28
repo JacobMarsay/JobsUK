@@ -23,4 +23,9 @@ class Skills extends Model
     {
         return $this->belongsTo(Application::class);
     }
+
+    public function jobpost()
+    {
+        return $this->belongsTo(JobPost::class);
+    }
 }

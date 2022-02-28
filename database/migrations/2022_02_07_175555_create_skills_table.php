@@ -24,6 +24,13 @@ class CreateSkillsTable extends Migration
                 ->on('application')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+
+            $table->integer('job_post_id')->unsigned();
+            $table->foreign('job_post_id')
+                ->references('id')
+                ->on('jobpost')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

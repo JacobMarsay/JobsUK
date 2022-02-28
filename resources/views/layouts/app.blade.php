@@ -14,15 +14,15 @@
                 <div class="navbar">
                 
                     <ul>
-                        <li> <a href="{{ route('showCompanyDashboard') }}">Dashboard</a>
-                        <li><a class="navbar__link" href="/job-post/create-job-post">Add Job Post</a></li>
-                        <li><a class="navbar__link" href="/">My Job Posts</a></li>
+                        <li> <a href="/posts">Dashboard</a>
+                        <li><a class="navbar__link" href="/posts/create">Add Job Post</a></li>
+                        <li><a class="navbar__link" href="/posts">My Job Posts</a></li>
                         <li><a class="navbar__link" href="/">Settings</a></li>
                         <li><a class="navbar__link" href="/logout">Logout</a></li>
                     </ul>
                 </div>          
             </div>
-        @else if($role == 2)    
+        @else if($role == 1)    
             <div class="navigation">
                 <div class="navbar">
                     <ul>

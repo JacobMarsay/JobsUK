@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <h1>Create Job Post</h1>
-<form class="" action="{{ route('storeJobPost') }}" method="POST">
+<form class="" action="{{ route('posts.store') }}" method="POST">
     @csrf
     <h1>Job Information</h1>
     <label for="job_title">Job Title<label>

@@ -41,3 +41,4 @@ class JobPost extends Model
         return $this->belongsToMany(Benefits::class);
     }
 }
+
