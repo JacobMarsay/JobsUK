@@ -16,16 +16,15 @@ class Skills extends Model
     protected $fillable = [
         'skill_name',
         'skill_type',
-        'application_id',
     ];
 
     public function application()
     {
-        return $this->belongsTo(Application::class);
+        return $this->belongsToMany(Application::class);
     }
 
     public function jobpost()
     {
-        return $this->belongsTo(JobPost::class);
+        return $this->belongsToMany(JobPost::class);
     }
 }

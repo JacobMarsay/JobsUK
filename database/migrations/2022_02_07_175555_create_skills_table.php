@@ -17,20 +17,6 @@ class CreateSkillsTable extends Migration
             $table->increments('id');
             $table->string('skill_name');
             $table->string('skill_type');
-            
-            $table->integer('application_id')->unsigned();
-            $table->foreign('application_id')
-                ->references('id')
-                ->on('application')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            $table->integer('job_post_id')->unsigned();
-            $table->foreign('job_post_id')
-                ->references('id')
-                ->on('jobpost')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
         });
     }
 

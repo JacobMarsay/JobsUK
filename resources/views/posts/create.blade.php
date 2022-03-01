@@ -19,6 +19,14 @@
     <label for="contract_type">Contract Length:<label>
     <input type="text" id="contract_type" name="contract_type">
 
+    <h1>Required Skills</h1>
+    <label for="skill_name">Skills<label>
+    <input type="text" id="skill_name" name="skill_name">
+    <select id="skill_type" name="skill_type">
+      <option value="skill_type">Soft Skill</option>
+      <option value="skill_type">Technical Skill</option>
+    </select>
+
     <h1>Employment Benefits</h1>
     <label for="benefits">Benefits<label>
     <input type="text" id="benefits" name="benefits">

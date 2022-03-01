@@ -28,7 +28,7 @@ class Application extends Model
 
     public function skills()
     {
-        return $this->hasMany(Skills::class);
+        return $this->belongsToMany(Skills::class);
     }
 
     public function references()

@@ -18,7 +18,7 @@ class JobPost extends Model
         'salary',
         'commute_type',
         'contract_type',
-        'post_date',
+        'created_at',
     ];
 
     // public function company()
@@ -33,7 +33,7 @@ class JobPost extends Model
 
     public function skills()
     {
-        return $this->hasMany(Skills::class);
+        return $this->belongsToMany(Skills::class);
     }
 
     public function benefits()
